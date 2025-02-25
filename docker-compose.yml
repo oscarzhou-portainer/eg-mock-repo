@@ -6,15 +6,22 @@ services:
       context: .
       dockerfile: eg.service1/Dockerfile
     container_name: service1
+    command: tail -f /dev/null
 
   service2:
     build:
       context: 
       dockerfile: eg.service2/Dockerfile
     container_name: service2
+    depends_on:
+      - service1
+    command: tail -f /dev/null
 
   service3:
     build:
       context: 
       dockerfile: eg.service3/Dockerfile
     container_name: service3
+    depends_on:
+      - service2
+    command: tail -f /dev/null    
