@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  service1:
+    build:
+      context: .
+      dockerfile: eg.service1/Dockerfile
+    container_name: service1
+
+  service2:
+    build:
+      context: 
+      dockerfile: eg.service2/Dockerfile
+    container_name: service2
+
+  service3:
+    build:
+      context: 
+      dockerfile: eg.service3/Dockerfile
+    container_name: service3
