@@ -7,21 +7,27 @@ services:
       dockerfile: eg.service1/Dockerfile
     container_name: service1
     command: tail -f /dev/null
+    volumes:
+      - ./config/${PORTAINER_EDGE_ID}/.env:/app/.env
 
   service2:
     build:
-      context: 
+      context: .
       dockerfile: eg.service2/Dockerfile
     container_name: service2
     depends_on:
       - service1
     command: tail -f /dev/null
+    volumes:
+      - ./config/${PORTAINER_EDGE_ID}/.env:/app/.env
 
   service3:
     build:
-      context: 
+      context: .
       dockerfile: eg.service3/Dockerfile
     container_name: service3
     depends_on:
       - service2
-    command: tail -f /dev/null    
+    command: tail -f /dev/null
+    volumes:
+      - ./config/${PORTAINER_EDGE_ID}/.env:/app/.env
